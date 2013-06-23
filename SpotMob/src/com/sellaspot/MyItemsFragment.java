@@ -19,6 +19,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -160,6 +161,8 @@ public class MyItemsFragment extends ListFragment implements OnQueryTextListener
 			
 			//Display list of bids
 	    	final Dialog dialog = new Dialog(this.getActivity());
+			dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
+
 			dialog.setContentView(R.layout.bids_by_item_layout);
 			dialog.setTitle("Bids for your item!");
 			dialog.setCancelable(true);
@@ -229,13 +232,15 @@ public class MyItemsFragment extends ListFragment implements OnQueryTextListener
 				  });
 			
 			dialog.show();
-			
+			dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.banner);
 			
 
 		}
 		else {
 
 	    	final Dialog dialog = new Dialog(this.getActivity());
+			dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
+
 			dialog.setContentView(R.layout.rate_bidder_layout);
 			dialog.setTitle("Rate this user");
 
@@ -321,6 +326,7 @@ public class MyItemsFragment extends ListFragment implements OnQueryTextListener
 			
 			//bidsAdapter.notifyDataSetChanged();
 			dialog.show();			
+			dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.banner);
 		}
 	}
 
@@ -543,10 +549,13 @@ public class MyItemsFragment extends ListFragment implements OnQueryTextListener
 	        return true;
 	    case R.id.about:
 	    	final Dialog dialog = new Dialog(this.getActivity());
+			dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
+
 			dialog.setContentView(R.layout.about_dialog);
 			
 			dialog.setTitle("About SpotMob");
 			dialog.show();
+			dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.banner);
 	        return true;
 	    case R.id.myProfile:
 			Intent intent = new Intent(this.getActivity(), MyProfileActivity.class);

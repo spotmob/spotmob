@@ -20,10 +20,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
@@ -244,6 +244,8 @@ public class SpotsFragment extends ListFragment implements OnQueryTextListener {
 	public void onListItemClick(ListView lv, View v, int position, long id) {
 
     	final Dialog dialog = new Dialog(this.getActivity());
+		dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
+		
 		dialog.setContentView(R.layout.spot_detail_dialog);
 		
 		dialog.setTitle("Bid For Spot!");
@@ -355,7 +357,8 @@ public class SpotsFragment extends ListFragment implements OnQueryTextListener {
 		priceTextView.setText(item.getQuantity() + " spots available for $" + item.getPrice());
 		
 		dialog.show();
-		
+		dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.banner);
+
 	}
 
 	@Override
@@ -497,10 +500,13 @@ public class SpotsFragment extends ListFragment implements OnQueryTextListener {
 	        return true;
 	    case R.id.about:
 	    	final Dialog dialog = new Dialog(this.getActivity());
+			dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
+
 			dialog.setContentView(R.layout.about_dialog);
 			
 			dialog.setTitle("About SpotMob");
 			dialog.show();
+			dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.banner);
 	        return true;
 	    case R.id.myProfile:
 			Intent intent = new Intent(this.getActivity(), MyProfileActivity.class);

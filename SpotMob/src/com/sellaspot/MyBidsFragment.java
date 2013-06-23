@@ -18,6 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -157,6 +158,8 @@ public class MyBidsFragment extends ListFragment {
 		if(bid.getAccepted().equalsIgnoreCase("true")) {
 			
 	    	final Dialog dialog = new Dialog(this.getActivity());
+			dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
+
 			dialog.setContentView(R.layout.rate_seller_layout);
 			
 			dialog.setTitle("Bid Status");
@@ -200,10 +203,13 @@ public class MyBidsFragment extends ListFragment {
 
 
 			dialog.show();
+			dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.banner);
 		} else {
 			
 			//Show the bid detail
 	    	final Dialog dialog = new Dialog(this.getActivity());
+			dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
+
 			dialog.setContentView(R.layout.bid_status);
 			RatingBar ratingBar = (RatingBar)dialog.findViewById(R.id.customUserRating);
 			TextView bidStatusTextView = (TextView)dialog.findViewById(R.id.bidStatus);
@@ -240,6 +246,7 @@ public class MyBidsFragment extends ListFragment {
 			}
 
 			dialog.show();
+			dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.banner);
 		}
 
 	}
@@ -322,10 +329,13 @@ public class MyBidsFragment extends ListFragment {
 	        return true;
 	    case R.id.about:
 	    	final Dialog dialog = new Dialog(this.getActivity());
+			dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
+
 			dialog.setContentView(R.layout.about_dialog);
 			
 			dialog.setTitle("About SpotMob");
 			dialog.show();
+			dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.banner);
 	        return true;
 	    case R.id.myProfile:
 			Intent intent = new Intent(this.getActivity(), MyProfileActivity.class);

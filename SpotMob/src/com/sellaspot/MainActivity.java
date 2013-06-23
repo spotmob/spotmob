@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -165,6 +166,8 @@ public class MainActivity extends Activity implements LocationListener {
     public void sellASpot(View view) {
     
     	final Dialog dialog = new Dialog(this);
+		dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
+
 		dialog.setContentView(R.layout.sellaspot_dialog);
 		
 		dialog.setTitle("Sell A Spot!");
@@ -242,6 +245,8 @@ public class MainActivity extends Activity implements LocationListener {
 		});
      	
 		dialog.show();
+		dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.banner);
+
     }
     
     class MyTabsListener implements ActionBar.TabListener {
